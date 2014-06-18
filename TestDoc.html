@@ -9,14 +9,18 @@ This is an example of a pml file
  
     pml = f()
 
-    a = '<h2>test<h2>'
+    a = '<h2>Assigning a variable in block one<h2>'
 </pml>
+</br>
 <p>This is a separator paragraph</P>
+</br>
 <pml>
-	print '<table>foo</table>'
+	print '<h2>In the next block I will call the variable assigned earlier</h2>'
 </pml>
+</br>
 <p>Another separator paragraph</p>
+</br>
 <pml>
-  pml += a
+  pml += a #this modifies the pml variable andcounts as a return.
 </pml>
 </html>
