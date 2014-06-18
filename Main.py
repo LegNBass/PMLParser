@@ -8,7 +8,13 @@ if __name__ == "__main__":
 	if len(sys.argv)>1 and sys.argv[1][-5:] == '.html':
 
 		#Run PML Parser
-		parsePML(open(sys.argv[1]))
-		
+		f = open(sys.argv[1])
+		text = f.read()
+		result = parsePML(text)
+
+		for i in xrange(len(result.split('\n'))-1):
+			text = text[:text.find('<pml>')] + result.split('\n')[i] + text[text.find('</pml>')+6:]
+		print text
+
 	else: 
 		print 'No Args'
