@@ -16,5 +16,8 @@ if __name__ == "__main__":
 			text = text[:text.find('<pml>')] + result.split('\n')[i] + text[text.find('</pml>')+6:]
 		print text
 
+	elif len(sys.argv)>1 and sys.argv[1] == '--help':
+		print 'Syntax is "python Main.py [HTML Document FilePath]"'
+
 	else: 
-		print 'No Args'
+		print 'No Valid Arguments\n--help for more info'
