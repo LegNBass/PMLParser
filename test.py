@@ -1,1 +1,0 @@
-print 'foo bar'.find('foo',5)
