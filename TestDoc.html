@@ -4,23 +4,13 @@
 This is an example of a pml file
 </p>
 <pml>
-    def f():
-        return "<h2>Good Bye</h2>"
- 
-    pml = f()
-
-    a = '<h2>Assigning a variable in block one<h2>'
-</pml>
-</br>
-<p>This is a separator paragraph</P>
-</br>
-<pml>
-	print '<h2>In the next block I will call the variable assigned earlier</h2>'
-</pml>
-</br>
-<p>Another separator paragraph</p>
-</br>
-<pml>
-  pml += a #this modifies the pml variable andcounts as a return.
+def f(n=150):
+    a,b=0,1
+    nums=[]
+    while b<=n:
+        nums.append(b)
+        a,b=b,a+b
+    return nums
+pml =''.join(['<p>%s</p>'%str(i) for i in f()])
 </pml>
 </html>

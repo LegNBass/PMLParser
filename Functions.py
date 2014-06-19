@@ -48,9 +48,13 @@ def parsePML(htmlFile):
 
 		# Removes indentation and adds a print pml statement if the pml variable is reassigned
 		pAssignPML = re.compile('pml\s*[+\-*%/]?=') #finds pml assignment
-		while statement[:len(indent)] == indent and indent != '':
-			statement = '\n'.join([i[len(indent):] for i in statement.split('\n')])+'\nprint pml.replace("\\n","")\n' if pAssignPML.search(statement) \
-				else '\n'.join([i[len(indent):] for i in statement.split('\n')])
+		if indent == '':
+			statement = '\n'.join([i for i in statement.split('\n')])+'\nprint pml.replace("\\n","")\n' if pAssignPML.search(statement) \
+					else '\n'.join([i for i in statement.split('\n')])
+		else:
+			while statement[:len(indent)] == indent:
+				statement = '\n'.join([i[len(indent):] for i in statement.split('\n')])+'\nprint pml.replace("\\n","")\n' if pAssignPML.search(statement) \
+					else '\n'.join([i[len(indent):] for i in statement.split('\n')])
 
 		# Adds statement to pml expression
 		pml+=statement
