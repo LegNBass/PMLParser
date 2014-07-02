@@ -4,13 +4,10 @@
 This is an example of a pml file
 </p>
 <pml>
-def f(n=150):
-    a,b=0,1
-    nums=[]
-    while b<=n:
-        nums.append(b)
-        a,b=b,a+b
-    return nums
-pml =''.join(['<p>%s</p>'%str(i) for i in f()])
-</pml>
+def fib(n):
+	phi = (1+5**.5)/2.0
+	return int(str('%1.9f'%((phi**n)/(5**.5) + (1/2.0))).split('.')[0])
+pml = ''.join('<marquee>%i</marquee>'%i for i in map(fib,range(1,101)))
+</pml>   
+
 </html>
